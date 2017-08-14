@@ -11,18 +11,22 @@ import (
 var Config configStruct
 
 type configStruct struct {
-	Token        string   `json:"Token"`
-	RoomIDList   []string `json:"RoomIDList"`
-	RoleToNotify string   `json:"RoleToNotify"`
-	Servers      []server `json:"Servers"`
-	GameStatus   string   `json:"GameStatus"`
+	Token           string   `json:"Token"`
+	RoomIDList      []string `json:"RoomIDList"`
+	RoleToNotify    string   `json:"RoleToNotify"`
+	Servers         []server `json:"Servers"`
+	GameStatus      string   `json:"GameStatus"`
+	HostRetryCount  int      `json:"HostRetryCount"`
+	ResetRetryCount int      `json:"ResetRetryCount"`
+	DeadHostCount   int      `json:"DeadHostCount"`
 }
 
 type server struct {
-	Name    string `json:"Name"`
-	Address string `json:"Address"`
-	Port    int    `json:"Port"`
-	Online  bool   `json:"Online,omitempty"`
+	Name          string `json:"Name"`
+	Address       string `json:"Address"`
+	Port          int    `json:"Port"`
+	Online        bool   `json:"Online,omitempty"`
+	HostDownCount int    `json:"HostDownCount,omitempty"`
 }
 
 func Configure() {
